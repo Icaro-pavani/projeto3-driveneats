@@ -1,6 +1,13 @@
 * {
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+    /* max-width: 414px; */
+    /* margin: 0 auto; */
+}
+
+html {
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 /* cor de fundo da página */
@@ -70,7 +77,7 @@ h2 {
 .pratos::-webkit-scrollbar,
 .bebidas::-webkit-scrollbar,
 .sobremesas::-webkit-scrollbar {
-    display: none;
+    /* display: none; */
 }
 
 /* definição do tamanho e características de cada item selecionável */
@@ -85,6 +92,7 @@ h2 {
     background-color: #fff;
     border-radius: 9px;
     box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
 }
 
 .prato img {
@@ -111,6 +119,12 @@ p {
     margin-bottom: 5px;
 }
 
+.prato p,
+.bebida p,
+.sobremesa p {
+    width: 144px;
+}
+
 /* preço */
 h4 {
     font-size: 16px;
@@ -132,7 +146,7 @@ footer {
     background-color: #fff;
 }
 
-footer a {
+footer .button {
     width: 364px;
     height: 61px;
     background-color: #cbcbcb;
@@ -142,15 +156,16 @@ footer a {
     justify-content: center;
     color: #fff;
     text-decoration: none;
-    
+    cursor: pointer;
     border-radius: 50px;
 }
 
-footer a p {
+footer .button p {
     font-size: 20px;
     line-height: 23px;
     letter-spacing: 0.018em;
     font-weight: 400;
     color: #fff;
-    margin: 0;
+    margin: 25%;
+    text-align: center;
 }
