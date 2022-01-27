@@ -28,14 +28,19 @@ function mandarMensagem() {
 let selecionados;
 let posicoes;
 function checarPedido() {
+    let total;
     selecionados = document.querySelectorAll('#buttonClicked');
     pos = document.querySelectorAll('td');
     pos[0].innerHTML = selecionados[0].querySelector('h3').innerHTML;
+    pos[1].innerHTML = selecionados[0].querySelector('h4').innerHTML.replace(/[^0-9.,-]+/g,"");
     pos[2].innerHTML = selecionados[1].querySelector('h3').innerHTML;
+    pos[3].innerHTML = selecionados[1].querySelector('h4').innerHTML.replace(/[^0-9.,-]+/g,"");
     pos[4].innerHTML = selecionados[2].querySelector('h3').innerHTML;
+    pos[5].innerHTML = selecionados[2].querySelector('h4').innerHTML.replace(/[^0-9.,-]+/g,"");
+    total = Number(pos[1].innerHTML.replace(',','.')) + Number(pos[3].innerHTML.replace(',','.')) +Number(pos[5].innerHTML.replace(',','.'));
+    pos[7].innerHTML = total.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
     document.querySelector('.finalizar').style.display = 'flex';
 }
-
 
 function cancelarConfirmacao() {
     document.querySelector('.finalizar').style.display = 'none';
