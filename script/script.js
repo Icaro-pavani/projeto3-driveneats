@@ -24,7 +24,7 @@ function selecionar(campo){
 function mandarMensagem() {
     let str = "Olá, gostaria de fazer o pedido: \n - Prato: Frango Yin Yang \n - Bebida: Coquinha Gelada \n - Sobremesa: Pudim \n Total: R$ 27,70";
     let a = encodeURIComponent(str);
-    window.open("https://wa.me/5519991029727?text=" + a, "_blank");
+    window.open("https://wa.me/55197?text=" + a, "_blank");
 }
 
 let myPlate = document.getElementsByClassName('prato');
