@@ -13,9 +13,6 @@ function selecionar(campo){
                 document.querySelector('.checar-pedido p').innerHTML = 'Fechar pedido';
                 document.querySelector('.checar-pedido').style.backgroundColor = '#32B72F';
                 botao.disabled = false;
-                // let message = mandarMensagem();
-                // document.querySelector('form').setAttribute('action', `https://wa.me/5519991029727?text=${message}`);
-            
             }
         });
     }
@@ -27,14 +24,29 @@ function mandarMensagem() {
     window.open("https://wa.me/55197?text=" + a, "_blank");
 }
 
+
+let selecionados;
+let posicoes;
 function checarPedido() {
+    selecionados = document.querySelectorAll('#buttonClicked');
+    pos = document.querySelectorAll('td');
+    pos[0].innerHTML = selecionados[0].querySelector('h3').innerHTML;
+    pos[2].innerHTML = selecionados[1].querySelector('h3').innerHTML;
+    pos[4].innerHTML = selecionados[2].querySelector('h3').innerHTML;
     document.querySelector('.finalizar').style.display = 'flex';
+}
+
+
+function cancelarConfirmacao() {
+    document.querySelector('.finalizar').style.display = 'none';
 }
 
 let myPlate = document.getElementsByClassName('prato');
 let myDrink = document.getElementsByClassName('bebida');
 let myDessert = document.getElementsByClassName('sobremesa');
+
 let botao = document.querySelector('.checar-pedido');
+let botaoCancelar = document.querySelector('.cancelar');
 botao.disabled = true;
 
 selecionar(myPlate);
@@ -42,6 +54,7 @@ selecionar(myDrink);
 selecionar(myDessert);
 
 botao.onclick = checarPedido;
+botaoCancelar.onclick = cancelarConfirmacao;
 
 if (document.querySelectorAll('#buttonClicked').length === 3){
     document.querySelector('.button').setAttribute('id', 'complete');
