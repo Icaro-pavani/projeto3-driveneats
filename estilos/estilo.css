@@ -8,6 +8,8 @@
 html {
     max-width: 500px;
     margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
+
 }
 
 /* cor de fundo da página */
@@ -193,4 +195,88 @@ ion-icon {
 #buttonClicked ion-icon {
     color: #32b72f;
     display: block;
+}
+
+.finalizar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 5;
+    background-color: rgba(256, 256, 256, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.revisao {
+    display: flex;
+    flex-direction: column;
+    width: 377px;
+    height: 353px;
+    border-radius: 9px;
+    background-color: #50d074;
+    /* justify-content: center; */
+    /* align-items: center; */
+    margin: auto auto;
+}
+
+.revisao h5 {
+    /* font-family: 'Roboto', sans-serif; */
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 26px;
+    text-align: center;
+    color: #fff;
+    margin-top: 21px;
+    letter-spacing: 0.01em;
+}
+
+.revisao table {
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: 0.018em;
+    margin: 28px 26px 11px;
+    color: #fff;
+}
+
+tr {
+    height: 40px;
+}
+
+.right {
+    text-align: right;
+}
+
+.total {
+    font-weight: bold;
+}
+
+.revisao button {
+    width: 333px;
+    min-height: 52px;
+    margin: 0 auto;
+}
+
+.pedir {
+    font-size: 22px;
+    line-height: 26px;
+    font-weight: bold;
+    color: #50d074;
+    letter-spacing: 0.018em;
+    background-color: #fff;
+    border: none;
+    border-radius: 100px;
+}
+
+.cancelar {
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 0.018em;
+    color: #fff;    
+    background-color: transparent;
+    border: none;
 }
