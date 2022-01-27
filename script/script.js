@@ -4,35 +4,25 @@ function removeStyles(arr){
     }
 }
 
+function selecionar(campo){
+    for (let value of campo){
+        value.addEventListener('click', function(){
+            removeStyles(campo);
+            this.setAttribute('id', 'buttonClicked');
+        });
+    }
+}
+
 let myPlate = document.getElementsByClassName('prato');
-console.log(myPlate);
-
-for (let value of myPlate){
-    value.addEventListener('click', function(){
-        removeStyles(myPlate);
-        this.setAttribute('id', 'buttonClicked');
-    });
-}
-
 let myDrink = document.getElementsByClassName('bebida');
-console.log(myDrink);
-
-for (let value of myDrink){
-    value.addEventListener('click', function(){
-        removeStyles(myDrink);
-        this.setAttribute('id', 'buttonClicked');
-    });
-}
-
 let myDessert = document.getElementsByClassName('sobremesa');
-console.log(myDessert);
 
-for (let value of myDessert){
-    value.addEventListener('click', function(){
-        removeStyles(myDessert);
-        this.setAttribute('id', 'buttonClicked');
-    });
-}
+let botao = document.querySelector('.button');
+// botao.disabled = true;
+
+selecionar(myPlate);
+selecionar(myDrink);
+selecionar(myDessert);
 
 if (document.querySelectorAll('#buttonClicked').length === 3){
     document.querySelector('.button').setAttribute('id', 'complete');
