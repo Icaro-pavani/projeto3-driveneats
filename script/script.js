@@ -9,16 +9,30 @@ function selecionar(campo){
         value.addEventListener('click', function(){
             removeStyles(campo);
             this.setAttribute('id', 'buttonClicked');
+            if (document.querySelectorAll('#buttonClicked').length === 3){
+                document.querySelector('button p').innerHTML = 'Fechar pedido';
+                document.querySelector('button').style.backgroundColor = '#32B72F';
+                botao.disabled = false;
+                // let message = mandarMensagem();
+                // document.querySelector('form').setAttribute('action', `https://wa.me/5519991029727?text=${message}`);
+            
+            }
         });
     }
+}
+
+function mandarMensagem() {
+    let str = "Olá, gostaria de fazer o pedido: \n - Prato: Frango Yin Yang \n - Bebida: Coquinha Gelada \n - Sobremesa: Pudim \n Total: R$ 27,70";
+    let a = encodeURIComponent(str);
+    window.open("https://wa.me/5519991029727?text=" + a, "_blank");
 }
 
 let myPlate = document.getElementsByClassName('prato');
 let myDrink = document.getElementsByClassName('bebida');
 let myDessert = document.getElementsByClassName('sobremesa');
 
-let botao = document.querySelector('.button');
-// botao.disabled = true;
+let botao = document.querySelector('button');
+botao.disabled = true;
 
 selecionar(myPlate);
 selecionar(myDrink);
