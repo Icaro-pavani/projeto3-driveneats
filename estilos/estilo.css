@@ -209,10 +209,13 @@ ion-icon {
     height: 100vh;
     z-index: 5;
     background-color: rgba(256, 256, 256, 0.9);
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
-    display: none;
+}
+
+.fechado {
+    display: flex;
 }
 
 .revisao {
