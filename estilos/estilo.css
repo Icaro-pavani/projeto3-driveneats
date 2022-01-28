@@ -1,6 +1,5 @@
 * {
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
     /* max-width: 414px; */
     /* margin: 0 auto; */
 }
@@ -31,7 +30,7 @@ header {
 
 header p {
     color: #fff;
-    font-family: 'Roboto', sans-serif;
+    /* font-family: 'Roboto', sans-serif; */
     font-size: 18px;
     font-weight: 400;
     line-height: 21px;

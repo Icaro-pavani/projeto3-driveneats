@@ -1,14 +1,14 @@
 let myPlate = document.getElementsByClassName('prato');
 let myDrink = document.getElementsByClassName('bebida');
 let myDessert = document.getElementsByClassName('sobremesa');
+let botao = document.querySelector('.checar-pedido');
+let botaoCancelar = document.querySelector('.cancelar');
+let botaoPedir = document.querySelector('.pedir');
 let selecionados;
 let pos;
 let total;
 let nome;
 let endereco;
-let botao = document.querySelector('.checar-pedido');
-let botaoCancelar = document.querySelector('.cancelar');
-let botaoPedir = document.querySelector('.pedir');
 botao.disabled = true;
 
 function removeStyles(arr) {
