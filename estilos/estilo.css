@@ -188,13 +188,17 @@ ion-icon {
     display: none;
 }
 
-#buttonClicked {
+.buttonClicked {
     box-shadow: inset 0 0 0 5px #32b72f;
 }
 
-#buttonClicked ion-icon {
+.buttonClicked ion-icon {
     color: #32b72f;
     display: block;
+}
+
+.botao-ativado {
+    background-color: #32B72F;
 }
 
 .finalizar {

@@ -1,18 +1,26 @@
-function removeStyles(arr){
-    for(let i = 0; i < arr.length; i++){
-        arr[i].removeAttribute('id');
+function removeStyles(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        arr[i].classList.remove('buttonClicked');
     }
 }
 
-function selecionar(campo){
-    for (let value of campo){
-        value.addEventListener('click', function(){
-            removeStyles(campo);
-            this.setAttribute('id', 'buttonClicked');
-            if (document.querySelectorAll('#buttonClicked').length === 3){
+function selecionar(campo) {
+    for (let value of campo) {
+        value.addEventListener('click', function () {
+            if (this.classList.contains('buttonClicked')) {
+                this.classList.toggle('buttonClicked');
+            } else {
+                removeStyles(campo);
+                this.classList.add('buttonClicked');
+            }
+            if (document.querySelectorAll('.buttonClicked').length === 3) {
                 document.querySelector('.checar-pedido p').innerHTML = 'Fechar pedido';
-                document.querySelector('.checar-pedido').style.backgroundColor = '#32B72F';
+                document.querySelector('.checar-pedido').classList.add('botao-ativado');
                 botao.disabled = false;
+            } else {
+                document.querySelector('.checar-pedido p').innerHTML = 'Selecione os 3 itens para fechar o pedido';
+                document.querySelector('.checar-pedido').classList.remove('botao-ativado');
+                botao.disabled = true;
             }
         });
     }
@@ -29,16 +37,16 @@ let selecionados;
 let posicoes;
 function checarPedido() {
     let total;
-    selecionados = document.querySelectorAll('#buttonClicked');
+    selecionados = document.querySelectorAll('.buttonClicked');
     pos = document.querySelectorAll('td');
     pos[0].innerHTML = selecionados[0].querySelector('h3').innerHTML;
-    pos[1].innerHTML = selecionados[0].querySelector('h4').innerHTML.replace(/[^0-9.,-]+/g,"");
+    pos[1].innerHTML = selecionados[0].querySelector('h4').innerHTML.replace(/[^0-9.,-]+/g, "");
     pos[2].innerHTML = selecionados[1].querySelector('h3').innerHTML;
-    pos[3].innerHTML = selecionados[1].querySelector('h4').innerHTML.replace(/[^0-9.,-]+/g,"");
+    pos[3].innerHTML = selecionados[1].querySelector('h4').innerHTML.replace(/[^0-9.,-]+/g, "");
     pos[4].innerHTML = selecionados[2].querySelector('h3').innerHTML;
-    pos[5].innerHTML = selecionados[2].querySelector('h4').innerHTML.replace(/[^0-9.,-]+/g,"");
-    total = Number(pos[1].innerHTML.replace(',','.')) + Number(pos[3].innerHTML.replace(',','.')) +Number(pos[5].innerHTML.replace(',','.'));
-    pos[7].innerHTML = total.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
+    pos[5].innerHTML = selecionados[2].querySelector('h4').innerHTML.replace(/[^0-9.,-]+/g, "");
+    total = Number(pos[1].innerHTML.replace(',', '.')) + Number(pos[3].innerHTML.replace(',', '.')) + Number(pos[5].innerHTML.replace(',', '.'));
+    pos[7].innerHTML = total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
     document.querySelector('.finalizar').style.display = 'flex';
 }
 
@@ -61,6 +69,6 @@ selecionar(myDessert);
 botao.onclick = checarPedido;
 botaoCancelar.onclick = cancelarConfirmacao;
 
-if (document.querySelectorAll('#buttonClicked').length === 3){
+if (document.querySelectorAll('#buttonClicked').length === 3) {
     document.querySelector('.button').setAttribute('id', 'complete');
 }
