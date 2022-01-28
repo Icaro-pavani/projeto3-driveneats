@@ -3,6 +3,7 @@ let myDrink = document.getElementsByClassName('bebida');
 let myDessert = document.getElementsByClassName('sobremesa');
 let selecionados;
 let pos;
+let total;
 let nome;
 let endereco;
 let botao = document.querySelector('.checar-pedido');
@@ -40,13 +41,12 @@ function selecionar(campo) {
 }
 
 function mandarMensagem() {
-    let str = "Olá, gostaria de fazer o pedido: \n - Prato: Frango Yin Yang \n - Bebida: Coquinha Gelada \n - Sobremesa: Pudim \n Total: R$ 27,70";
+    let str = `Olá, gostaria de fazer o pedido:\n- Prato: ${pos[0].innerHTML}\n- Bebida: ${pos[2].innerHTML}\n- Sobremesa: ${pos[4].innerHTML}\nTotal: R$ ${total.toFixed(2)}\n\nNome: ${nome}\nEndereço: ${endereco}`;
     let a = encodeURIComponent(str);
-    window.open("https://wa.me/55197?text=" + a, "_blank");
+    window.open("https://wa.me/5519997?text=" + a, "_blank");
 }
 
 function checarPedido() {
-    let total;
     nome = prompt('Nome:');
     endereco = prompt('Endereço:');
     selecionados = document.querySelectorAll('.buttonClicked');
@@ -72,3 +72,4 @@ selecionar(myDessert);
 
 botao.onclick = checarPedido;
 botaoCancelar.onclick = cancelarConfirmacao;
+botaoPedir.onclick = mandarMensagem;
