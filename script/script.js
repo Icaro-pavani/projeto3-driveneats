@@ -43,7 +43,7 @@ function selecionar(campo) {
 function mandarMensagem() {
     let str = `Olá, gostaria de fazer o pedido:\n- Prato: ${pos[0].innerHTML}\n- Bebida: ${pos[2].innerHTML}\n- Sobremesa: ${pos[4].innerHTML}\nTotal: R$ ${total.toFixed(2)}\n\nNome: ${nome}\nEndereço: ${endereco}`;
     let a = encodeURIComponent(str);
-    window.open("https://wa.me/5519997?text=" + a, "_blank");
+    window.open("https://wa.me/5519991029727?text=" + a, "_blank");
 }
 
 function checarPedido() {
